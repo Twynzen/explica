@@ -108,6 +108,7 @@ Una cabeza de atención con números de juguete calculados en código y verifica
 - [docs/AUDIO.md](docs/AUDIO.md) — voz/música separadas, Piper local, loudness, sustitución por grabación humana.
 - [docs/RECOVERY.md](docs/RECOVERY.md) — checkpoints, undo, locks, jobs recuperables.
 - [docs/ACCEPTANCE.md](docs/ACCEPTANCE.md) — pruebas A01–A22 con evidencia y estado real.
+- [docs/REVIEW-DANIEL.md](docs/REVIEW-DANIEL.md) — la revisión humana pendiente (A16, A08, A09) en 5 minutos.
 - [docs/LIMITS.md](docs/LIMITS.md) — lo que no está probado o no funciona todavía.
 - [docs/SECURITY.md](docs/SECURITY.md) — modelo de amenazas y qué se rechaza.
 
