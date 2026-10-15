@@ -28,7 +28,7 @@ def piper_available() -> bool:
         return False
 
 
-def synthesize_voice(text: str, out_wav: Path, model_path: Path, length_scale: float = 1.0, sentence_silence: float = 0.25) -> dict:
+def synthesize_voice(text: str, out_wav: Path, model_path: Path, length_scale: float = 1.0, sentence_silence: float = 0.25, noise_scale: float = 0.4, noise_w_scale: float = 0.5) -> dict:
     """Synthesize `text` to a 48 kHz mono WAV with Piper (local)."""
     from piper import PiperVoice  # type: ignore
 
@@ -41,7 +41,7 @@ def synthesize_voice(text: str, out_wav: Path, model_path: Path, length_scale: f
     try:
         from piper import SynthesisConfig  # type: ignore
 
-        cfg = SynthesisConfig(length_scale=length_scale)
+        cfg = SynthesisConfig(length_scale=length_scale, noise_scale=noise_scale, noise_w_scale=noise_w_scale)
     except Exception:  # older piper
         cfg = None
     with wave.open(str(raw), "wb") as fh:
@@ -53,7 +53,7 @@ def synthesize_voice(text: str, out_wav: Path, model_path: Path, length_scale: f
     # resample to 48 kHz, add a short tail of silence so clips never cut a phoneme
     run([ffmpeg, "-v", "error", "-y", "-i", str(raw), "-af", f"apad=pad_dur={sentence_silence}", "-ar", "48000", "-ac", "1", "-c:a", "pcm_s16le", str(out_wav)])
     raw.unlink(missing_ok=True)
-    return {"path": str(out_wav), "model": Path(model_path).name, "text": text, "sample_rate": 48000}
+    return {"path": str(out_wav), "model": Path(model_path).name, "text": text, "sample_rate": 48000, "length_scale": length_scale, "noise_scale": noise_scale, "noise_w_scale": noise_w_scale}
 
 
 def generate_music(out_wav: Path, seconds: float, seed: int = 7, gain_db: float = -22.0) -> dict:

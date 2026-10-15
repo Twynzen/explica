@@ -22,12 +22,16 @@ W, H = 1080, 1920
 FPS = Fps(30, 1)
 
 # (beat_id, [sentences])  — kept short for mobile captions (≤ 120 chars each)
-SENTENCES: list[tuple[str, list[str]]] = [
-    ("beat1", ["Tres tokens de juguete: El, gato, duerme.", "¿A qué atiende la última posición?"]),
-    ("beat2", ["Cada token aporta una clave, k; «duerme» aporta la consulta, q."]),
-    ("beat3", ["Puntuación: q por k, entre raíz de d sub k.", "Softmax las convierte en pesos que suman uno."]),
-    ("beat4", ["Cada peso multiplica un valor, v; la suma es la salida de «duerme»."]),
-    ("beat5", ["Una cabeza simplificada; el modelo la repite en muchas capas."]),
+# (beat_id, [(caption_text, tts_text)]) — the caption is what the viewer reads; the TTS text spells
+# letters/symbols the way a Spanish speaker says them so the placeholder voice stays intelligible.
+SENTENCES: list[tuple[str, list[tuple[str, str]]]] = [
+    ("beat1", [("Tres tokens de juguete: El, gato, duerme.", "Tres tokens de juguete: El, gato, duerme."),
+               ("¿A qué atiende la última posición?", "¿A qué atiende la última posición?")]),
+    ("beat2", [("Cada token aporta una clave, k; «duerme» aporta la consulta, q.", "Cada token aporta una clave, ka. Duerme aporta la consulta, cu.")]),
+    ("beat3", [("Puntuación: q por k, entre raíz de d sub k.", "Puntuación: cu por ka, entre raíz de de sub ka."),
+               ("Softmax las convierte en pesos que suman uno.", "Softmax las convierte en pesos que suman uno.")]),
+    ("beat4", [("Cada peso multiplica un valor, v; la suma es la salida de «duerme».", "Cada peso multiplica un valor, uve. La suma es la salida de duerme.")]),
+    ("beat5", [("Una cabeza simplificada; el modelo la repite en muchas capas.", "Una cabeza simplificada. El modelo la repite en muchas capas.")]),
 ]
 
 TOKEN_X = [240, 540, 840]
@@ -227,14 +231,14 @@ def build(root: Path, piper_model: Path | None = None, pad_frames: int = 9, gap_
     n = 0
     for beat_id, sentences in SENTENCES:
         beat_start = cursor
-        for sent in sentences:
+        for sent, tts_text in sentences:
             n += 1
             aid = f"voice-{n:02d}"
             wav = root / "assets" / "voice" / f"{aid}.wav"
             if voice_ok:
-                info = synthesize_voice(sent, wav, Path(piper_model), length_scale=length_scale)
+                info = synthesize_voice(tts_text, wav, Path(piper_model), length_scale=length_scale)
                 frames = duration_frames(wav, FPS, "ceil")
-                p.add_asset(aid, wav, "audio", license="placeholder synthetic narration (Piper, local model)", provenance=f"explica pilot · {info['model']}", copy_into=None, meta={"duration_frames": frames, "text": sent})
+                p.add_asset(aid, wav, "audio", license="placeholder synthetic narration (Piper, local model)", provenance=f"explica pilot · {info['model']}", copy_into=None, meta={"duration_frames": frames, "text": sent, "tts_text": tts_text})
             else:
                 frames = max(45, int(len(sent) * 2.2))  # silent placeholder; flagged in summary
             a1_clips.append({"id": f"A1-{aid}", "source": {"kind": "asset", "ref": aid}, "start": cursor, "in": 0, "out": frames, "gain_db": 0.0, "enabled": True})

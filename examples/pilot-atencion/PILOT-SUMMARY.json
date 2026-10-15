@@ -4,33 +4,33 @@
     {
       "id": "beat1",
       "start": 0,
-      "frames": 204
+      "frames": 215
     },
     {
       "id": "beat2",
-      "start": 204,
-      "frames": 179
+      "start": 215,
+      "frames": 195
     },
     {
       "id": "beat3",
-      "start": 383,
-      "frames": 243
+      "start": 410,
+      "frames": 251
     },
     {
       "id": "beat4",
-      "start": 626,
-      "frames": 170
+      "start": 661,
+      "frames": 185
     },
     {
       "id": "beat5",
-      "start": 796,
-      "frames": 162
+      "start": 846,
+      "frames": 172
     }
   ],
   "voice": "piper",
   "warnings": [],
   "revision": 17,
-  "duration_frames": 958,
+  "duration_frames": 1018,
   "math": {
     "scores": [
       0.707,

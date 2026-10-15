@@ -34,11 +34,28 @@ proyecto. Nivel por defecto −20 dB, más `gain_db` del clip (piloto: −6 dB) 
 
 Objetivo del proyecto (no requisito universal de ninguna plataforma): −16 LUFS ±1 integrado, true peak ≤ −1 dBTP.
 El bundle aplica `loudnorm` en dos pasadas sobre el master y vuelve a medir con `ebur128`:
-piloto → −15,9 LUFS, LRA 2,4 LU, −2,5 dBTP (`docs/evidence/A17-pilot-bundle-QA-REPORT.json`).
+piloto → −16,0 LUFS, LRA 2,9 LU, −3,3 dBTP (`docs/evidence/A17-pilot-bundle-QA-REPORT.json`).
 `explica qa archivo.mp4` reporta loudness, intervalos negros y silencios (A11) sin borrar nada.
+
+## Comprobación automática de la narración (`scripts/voice_check.py`)
+
+Transcribe cada clip de voz con `faster-whisper` (modelo `base`, int8, CPU) y lo compara con su guion
+(`similarity` por `difflib`). Es evidencia de inteligibilidad **por máquina** con un juez débil (el modelo
+base confunde palabras incluso en voz clara) y Piper no es determinista, así que los valores oscilan entre
+ejecuciones; úsalo para detectar términos mal pronunciados (letras, símbolos), no como aprobación. En el piloto,
+el guion de TTS deletrea las letras («ka», «cu», «uve», «de sub ka») mientras el caption muestra `k`, `q`, `v`,
+`d sub k`; antes de ese cambio las frases con letras bajaban a 0,70 de similitud. Resultado de la última
+ejecución: `docs/evidence/pilot-voice-check.json`. La escucha humana sigue pendiente.
+
+Medido en este PC (i3-9100F, CPU, 2 hilos): `faster-whisper` 1.2.1 + CTranslate2 4.8.3, modelo base int8:
+carga 0,6 s, 69 s de audio en 8,2 s, RSS máx 483 MiB. PyAV 16 rompe `decode_audio` de faster-whisper 1.2.1
+(`metadata_errors`), por eso el script decodifica el WAV con `wave`/NumPy y pasa el array.
 
 ## Referencia externa (análisis, no producción)
 
-Para transcribir un audio de referencia con `whisper.cpp` u otro ASR local hay que instalarlo aparte; este
-repo solo **almacena** transcripciones con su procedencia (`transcripts` en el manifiesto) y las sirve por
-`transcript_query`. No infiere lo hablado a partir de descripciones ni inventa timestamps.
+El audio del reel de referencia se transcribió con el mismo procedimiento (muestra de 30 s primero, luego los
+69 s; mezcla original intacta; idioma detectado es, p = 0,989). El resultado vive **fuera de este repositorio**
+(material privado) con cada segmento marcado como texto ASR, término sospechoso o inferencia visual, y
+timestamps del modelo no validados por escucha. Este repo solo **almacena** transcripciones con su procedencia
+(`transcripts` en el manifiesto) y las sirve por `transcript_query`. No infiere lo hablado a partir de
+descripciones ni inventa timestamps.

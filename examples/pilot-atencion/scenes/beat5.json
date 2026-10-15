@@ -2,7 +2,7 @@
   "schema": "explica/scene@1",
   "id": "beat5",
   "title": "Una cabeza, muchas capas",
-  "duration_frames": 162,
+  "duration_frames": 172,
   "background": "#000000",
   "width": 1080,
   "height": 1920,
@@ -199,8 +199,8 @@
       "property": "opacity",
       "from": 0,
       "to": 1,
-      "start": 81,
-      "end": 93,
+      "start": 86,
+      "end": 98,
       "easing": "ease_out"
     },
     {
@@ -209,8 +209,8 @@
       "property": "opacity",
       "from": 0,
       "to": 1,
-      "start": 89,
-      "end": 101,
+      "start": 94,
+      "end": 106,
       "easing": "ease_out"
     },
     {
@@ -219,8 +219,8 @@
       "property": "opacity",
       "from": 0,
       "to": 1,
-      "start": 97,
-      "end": 109,
+      "start": 102,
+      "end": 114,
       "easing": "ease_out"
     },
     {
@@ -229,8 +229,8 @@
       "property": "opacity",
       "from": 0,
       "to": 1,
-      "start": 111,
-      "end": 123,
+      "start": 116,
+      "end": 128,
       "easing": "ease_out"
     },
     {
@@ -239,8 +239,8 @@
       "property": "opacity",
       "from": 0,
       "to": 1,
-      "start": 81,
-      "end": 93,
+      "start": 86,
+      "end": 98,
       "easing": "ease_out"
     },
     {
@@ -249,8 +249,8 @@
       "property": "zoom",
       "from": 1.0,
       "to": 0.9,
-      "start": 81,
-      "end": 162,
+      "start": 86,
+      "end": 172,
       "easing": "ease_in_out"
     }
   ],

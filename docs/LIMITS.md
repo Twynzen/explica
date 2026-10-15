@@ -11,11 +11,12 @@
 2. **Propiedades Kdenlive no verificadas en GUI:** `kdenlive:clip_type` (0 AV / 1 audio / 2 vídeo, inferido de
    muestras), `kdenlive:producer_type`, ausencia de `meta.media.*` (Kdenlive las regenera al cargar, según
    su código fuente, pero no se ha observado).
-3. **Audio no escuchado.** Ningún agente oyó la narración ni la mezcla: solo medidas (LUFS, true peak,
-   silencios) y texto. Pronunciación de Piper de «k», «q», «d sub k» y el balance voz/música requieren escucha
-   humana. La voz es un marcador sintético; la producción debe reemplazarla por una grabación.
-4. **Transcripción del reel de referencia:** no realizada (sin ASR instalado; `whisper.cpp` requiere compilar y
-   descargar un modelo, decisión reservada al plan P1). El análisis visual previo no cambia.
+3. **Audio no escuchado por humanos.** Ningún agente oyó la narración ni la mezcla: solo medidas (LUFS, true
+   peak, silencios), texto y una comprobación por máquina (`scripts/voice_check.py`: ASR sobre cada clip; dos de
+   siete clips quedaron bajo 0,85 de similitud en la última ejecución, con un juez débil). La voz es un marcador
+   sintético; la producción debe reemplazarla por una grabación. El balance voz/música requiere escucha humana.
+4. **Transcripción del reel de referencia:** hecha con faster-whisper base en CPU (privada, fuera del repo),
+   **sin revisión humana**: varios términos marcados como sospechosos. `whisper.cpp` no se compiló (falta `cmake`).
 5. **Transparencia** probada solo con QuickTime RLE (`qtrle`, argb) → `qtblend` en MLT. Otros codecs con alfa
    (ProRes 4444, VP9 alpha) no probados.
 6. **Fuentes:** el motor usa la API de texto simple de cairo (sin Pango): no hay fallback de glifos entre fuentes.

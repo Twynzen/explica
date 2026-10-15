@@ -1,0 +1,51 @@
+[
+  {
+    "asset": "voice-01",
+    "script": "Tres tokens de juguete: El, gato, duerme.",
+    "tts_text": "Tres tokens de juguete: El, gato, duerme.",
+    "asr": "Tres tokens de juguete en gato duerme.",
+    "similarity": 0.937
+  },
+  {
+    "asset": "voice-02",
+    "script": "¿A qué atiende la última posición?",
+    "tts_text": "¿A qué atiende la última posición?",
+    "asr": "a que atienden la última posición",
+    "similarity": 0.925
+  },
+  {
+    "asset": "voice-03",
+    "script": "Cada token aporta una clave, k; «duerme» aporta la consulta, q.",
+    "tts_text": "Cada token aporta una clave, ka. Duerme aporta la consulta, cu.",
+    "asr": "Cada toque en aportar una clave K, duerme aportar la consulta KURU",
+    "similarity": 0.837
+  },
+  {
+    "asset": "voice-04",
+    "script": "Puntuación: q por k, entre raíz de d sub k.",
+    "tts_text": "Puntuación: cu por ka, entre raíz de de sub ka.",
+    "asr": "puntuación cú por cae entre reis de de sub cae",
+    "similarity": 0.764
+  },
+  {
+    "asset": "voice-05",
+    "script": "Softmax las convierte en pesos que suman uno.",
+    "tts_text": "Softmax las convierte en pesos que suman uno.",
+    "asr": "Sot Max las convierte en pesos que suman uno.",
+    "similarity": 0.978
+  },
+  {
+    "asset": "voice-06",
+    "script": "Cada peso multiplica un valor, v; la suma es la salida de «duerme».",
+    "tts_text": "Cada peso multiplica un valor, uve. La suma es la salida de duerme.",
+    "asr": "Cada peso multiplica un valor ue, la suma es la salida de tu erm.",
+    "similarity": 0.909
+  },
+  {
+    "asset": "voice-07",
+    "script": "Una cabeza simplificada; el modelo la repite en muchas capas.",
+    "tts_text": "Una cabeza simplificada. El modelo la repite en muchas capas.",
+    "asr": "una cabeza simplificada, el modelo la repite en muchas capas.",
+    "similarity": 0.984
+  }
+]

@@ -2,7 +2,7 @@
   "schema": "explica/scene@1",
   "id": "beat1",
   "title": "Atención: un paso",
-  "duration_frames": 204,
+  "duration_frames": 215,
   "background": "#000000",
   "width": 1080,
   "height": 1920,
@@ -193,8 +193,8 @@
       "property": "opacity",
       "from": 0,
       "to": 1,
-      "start": 102,
-      "end": 114,
+      "start": 107,
+      "end": 119,
       "easing": "ease_out"
     },
     {
@@ -203,8 +203,8 @@
       "property": "opacity",
       "from": 0,
       "to": 1,
-      "start": 112,
-      "end": 124,
+      "start": 117,
+      "end": 129,
       "easing": "ease_out"
     },
     {
@@ -213,8 +213,8 @@
       "property": "glow",
       "from": 0,
       "to": 1,
-      "start": 102,
-      "end": 117,
+      "start": 107,
+      "end": 122,
       "easing": "ease_out"
     }
   ],

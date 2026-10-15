@@ -81,7 +81,10 @@ frame → parche con dry-run → corte → preview → undo): [docs/evidence/A18
 y el log del servidor [A18-mcp-clean-session-server.jsonl](docs/evidence/A18-mcp-clean-session-server.jsonl).
 Detalles y límites de cliente en [docs/MCP.md](docs/MCP.md).
 
-## Piloto original: «Atención: un paso» (31,9 s, vertical, español)
+## Piloto original: «Atención: un paso» (33,9 s, vertical, español)
+
+Objetivo del plan: 20–30 s; el piloto queda en 33,9 s porque cada frase se cronometra con su clip de voz medido
+y los captions deben caber en dos líneas legibles en móvil. Acortar frases o la pausa entre beats (`pad_frames`) lo reduce.
 
 ```bash
 .venv/bin/python -m explica.pilot.attention examples/pilot-atencion --piper-model .models/piper/es_MX-ald-medium.onnx
@@ -90,8 +93,8 @@ Detalles y límites de cliente en [docs/MCP.md](docs/MCP.md).
 
 Una cabeza de atención con números de juguete calculados en código y verificados en tests
 (`pesos = softmax(q·kᵢ/√d_k)` suman 1; salida = Σ wᵢvᵢ). Guion, storyboard, fuentes y simplificaciones:
-[examples/pilot-atencion/README.md](examples/pilot-atencion/README.md). QA del master (−15,9 LUFS,
-−2,5 dBTP, 958 frames 1080×1920): [docs/evidence/A17-pilot-bundle-QA-REPORT.json](docs/evidence/A17-pilot-bundle-QA-REPORT.json).
+[examples/pilot-atencion/README.md](examples/pilot-atencion/README.md). QA del master (−16,0 LUFS,
+−3,3 dBTP, 1018 frames 1080×1920): [docs/evidence/A17-pilot-bundle-QA-REPORT.json](docs/evidence/A17-pilot-bundle-QA-REPORT.json).
 
 ![frame del master](docs/evidence/pilot-master-f600.png)
 

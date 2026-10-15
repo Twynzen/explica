@@ -2,7 +2,7 @@
   "schema": "explica/scene@1",
   "id": "beat4",
   "title": "Combinar valores",
-  "duration_frames": 170,
+  "duration_frames": 185,
   "background": "#000000",
   "width": 1080,
   "height": 1920,
@@ -255,8 +255,8 @@
       "property": "opacity",
       "from": 0,
       "to": 1,
-      "start": 85,
-      "end": 97,
+      "start": 92,
+      "end": 104,
       "easing": "ease_out"
     },
     {
@@ -265,8 +265,8 @@
       "property": "progress",
       "from": 0.0,
       "to": 1.0,
-      "start": 93,
-      "end": 113,
+      "start": 100,
+      "end": 120,
       "easing": "ease_in_out"
     },
     {
@@ -275,8 +275,8 @@
       "property": "progress",
       "from": 0.0,
       "to": 1.0,
-      "start": 97,
-      "end": 117,
+      "start": 104,
+      "end": 124,
       "easing": "ease_in_out"
     },
     {
@@ -285,8 +285,8 @@
       "property": "progress",
       "from": 0.0,
       "to": 1.0,
-      "start": 101,
-      "end": 121,
+      "start": 108,
+      "end": 128,
       "easing": "ease_in_out"
     },
     {
@@ -295,8 +295,8 @@
       "property": "opacity",
       "from": 0,
       "to": 1,
-      "start": 115,
-      "end": 130,
+      "start": 122,
+      "end": 137,
       "easing": "ease_out"
     }
   ],
