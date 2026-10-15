@@ -34,7 +34,7 @@ proyecto. Nivel por defecto −20 dB, más `gain_db` del clip (piloto: −6 dB) 
 
 Objetivo del proyecto (no requisito universal de ninguna plataforma): −16 LUFS ±1 integrado, true peak ≤ −1 dBTP.
 El bundle aplica `loudnorm` en dos pasadas sobre el master y vuelve a medir con `ebur128`:
-piloto → −16,0 LUFS, LRA 2,9 LU, −3,3 dBTP (`docs/evidence/A17-pilot-bundle-QA-REPORT.json`).
+piloto → −16,0 LUFS, LRA 3,2 LU, −3,3 dBTP (`docs/evidence/A17-pilot-bundle-QA-REPORT.json`).
 `explica qa archivo.mp4` reporta loudness, intervalos negros y silencios (A11) sin borrar nada.
 
 ## Comprobación automática de la narración (`scripts/voice_check.py`)

@@ -2,7 +2,7 @@
   "schema": "explica/scene@1",
   "id": "beat2",
   "title": "Claves y consulta",
-  "duration_frames": 195,
+  "duration_frames": 155,
   "background": "#000000",
   "width": 1080,
   "height": 1920,
@@ -173,8 +173,8 @@
       "property": "opacity",
       "from": 0,
       "to": 1,
-      "start": 97,
-      "end": 109,
+      "start": 77,
+      "end": 89,
       "easing": "ease_out"
     },
     {
@@ -183,8 +183,8 @@
       "property": "opacity",
       "from": 0,
       "to": 1,
-      "start": 105,
-      "end": 117,
+      "start": 85,
+      "end": 97,
       "easing": "ease_out"
     },
     {
@@ -193,8 +193,8 @@
       "property": "opacity",
       "from": 0,
       "to": 1,
-      "start": 113,
-      "end": 125,
+      "start": 93,
+      "end": 105,
       "easing": "ease_out"
     }
   ],

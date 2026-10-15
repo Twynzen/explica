@@ -1,6 +1,6 @@
 # Piloto: «Atención: un paso»
 
-Vídeo vertical 1080×1920, 30 fps, 33,9 s, español, acromático (propuesta inspirada en una referencia
+Vídeo vertical 1080×1920, 30 fps, 29,4 s, español, acromático (propuesta inspirada en una referencia
 privada, no una regla global). Explica **una** operación: cómo la última posición de una secuencia de tres
 tokens calcula sus pesos de atención y combina los valores. Una cabeza, sin entrenamiento, sin MLP, sin
 múltiples cabezas ni capas (se nombran como simplificación al final).

@@ -46,7 +46,7 @@ scripts/kdenlive_headless_roundtrip.sh examples/pilot-atencion/export/pilot-aten
 
 Resultado (2026-10-15, Kdenlive 26.08.0, evidencia en `docs/evidence/A03-kdenlive-gui/`):
 
-- Kdenlive **abre** el proyecto exportado: bin con la secuencia «Atención: un paso» (00:00:33:28), 24 clips,
+- Kdenlive **abre** el proyecto exportado: bin con la secuencia «Atención: un paso» (00:00:29:11), 24 clips,
   guías beat1–beat5, monitor de proyecto renderizando títulos, escena y caption (`shot-01-loaded.png`).
 - Edición humana simulada con ratón/teclado reales: clic en la regla (mueve el cursor), `G` + diálogo →
   guía «Marker» (`shot-02-guide-added.png`); `Ctrl+A` y `Shift+R` (cortar en el cursor) (`shot-03-after-cut.png`).

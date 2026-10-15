@@ -27,10 +27,10 @@ FPS = Fps(30, 1)
 SENTENCES: list[tuple[str, list[tuple[str, str]]]] = [
     ("beat1", [("Tres tokens de juguete: El, gato, duerme.", "Tres tokens de juguete: El, gato, duerme."),
                ("¿A qué atiende la última posición?", "¿A qué atiende la última posición?")]),
-    ("beat2", [("Cada token aporta una clave, k; «duerme» aporta la consulta, q.", "Cada token aporta una clave, ka. Duerme aporta la consulta, cu.")]),
+    ("beat2", [("Cada token aporta una clave k; «duerme» aporta la consulta q.", "Cada token aporta una clave ka; duerme aporta la consulta cu.")]),
     ("beat3", [("Puntuación: q por k, entre raíz de d sub k.", "Puntuación: cu por ka, entre raíz de de sub ka."),
                ("Softmax las convierte en pesos que suman uno.", "Softmax las convierte en pesos que suman uno.")]),
-    ("beat4", [("Cada peso multiplica un valor, v; la suma es la salida de «duerme».", "Cada peso multiplica un valor, uve. La suma es la salida de duerme.")]),
+    ("beat4", [("Cada peso multiplica un valor v; la suma es la salida de «duerme».", "Cada peso multiplica un valor uve; la suma es la salida de duerme.")]),
     ("beat5", [("Una cabeza simplificada; el modelo la repite en muchas capas.", "Una cabeza simplificada. El modelo la repite en muchas capas.")]),
 ]
 
@@ -209,7 +209,7 @@ def _scene(sid: str, duration: int, objects: list[dict], animations: list[dict])
     }
 
 
-def build(root: Path, piper_model: Path | None = None, pad_frames: int = 9, gap_frames: int = 4, length_scale: float = 0.95) -> dict:
+def build(root: Path, piper_model: Path | None = None, pad_frames: int = 4, gap_frames: int = 2, length_scale: float = 0.88) -> dict:
     """Create the full pilot project at `root`. Returns a summary with measured durations."""
     step = compute()
     assert abs(sum(step.weights) - 1.0) < 1e-9
