@@ -1,13 +1,10 @@
 # Límites y pendientes (lo que NO está comprobado)
 
-1. **GUI de Kdenlive.** No se abrió el proyecto exportado en Kdenlive 26.08 con pantalla. El intento con
-   `QT_QPA_PLATFORM=offscreen` termina en *segmentation fault*; el backtrace del core dump
-   (`coredumpctl`) sitúa el fallo en `KColorButton::KColorButton → QMimeData::hasColor` (KF6WidgetsAddons,
-   portapapeles inexistente en la plataforma offscreen), es decir, en la construcción de la interfaz y no en la
-   carga del documento (sin archivo, Kdenlive se queda esperando en su asistente inicial sin crash). Verificación pendiente por una persona: abrir `export/pilot-atencion.kdenlive`,
-   comprobar que los 23 productores cargan (clips de escena, 7 wav, títulos, captions), mover un clip, editar un
-   título, guardar y ejecutar `explica sync-from-kdenlive`. El formato sigue el de los proyectos del repositorio
-   de pruebas de Kdenlive (doc 1.1) y `melt` lo renderiza.
+1. **GUI de Kdenlive: probada en headless, no en el escritorio de Daniel.** El round-trip real se hizo con
+   Kdenlive 26.08 dentro de un Weston headless privado (`docs/KDENLIVE.md`), no en la sesión gráfica habitual. El
+   intento con `QT_QPA_PLATFORM=offscreen|minimal|vnc` termina en *segmentation fault* en `KColorButton` (portapapeles
+   ausente), de ahí el compositor real. El corte por teclado (`Shift+R`) no se aplicó de forma fiable en la prueba;
+   la lectura de cortes hechos por Kdenlive está cubierta por pruebas con archivos modificados como los guarda él.
 2. **Propiedades Kdenlive no verificadas en GUI:** `kdenlive:clip_type` (0 AV / 1 audio / 2 vídeo, inferido de
    muestras), `kdenlive:producer_type`, ausencia de `meta.media.*` (Kdenlive las regenera al cargar, según
    su código fuente, pero no se ha observado).

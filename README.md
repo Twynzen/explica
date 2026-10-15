@@ -9,8 +9,9 @@ compuesto con MLT (`melt`, el mismo motor de Kdenlive), ida y vuelta con proyect
 Todo corre en local, sin red, sin servicios de pago. Licencia MIT.
 
 > Estado: v0.1.0. Probado en Linux (Arch/Omarchy, Python 3.13, FFmpeg 9.0.1, MLT 7.40, Kdenlive 26.08)
-> y en CI (Ubuntu, Python 3.12/3.13, FFmpeg + melt de apt). Lo que **no** se ha probado está en
-> [docs/LIMITS.md](docs/LIMITS.md); no lo des por hecho.
+> y en CI (Ubuntu, Python 3.12/3.13, FFmpeg + melt de apt). El round-trip con la GUI real de Kdenlive 26.08 se
+> verificó en un compositor headless privado ([docs/KDENLIVE.md](docs/KDENLIVE.md)). Lo que **no** se ha probado
+> está en [docs/LIMITS.md](docs/LIMITS.md); no lo des por hecho.
 
 ## Qué hace
 

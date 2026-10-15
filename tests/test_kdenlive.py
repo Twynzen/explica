@@ -142,3 +142,19 @@ def test_unmodelled_effects_are_reported(timeline_project: Project):
     path.write_text(text)
     res = sync_from_kdenlive(p, path, dry_run=True)
     assert any("brightness" in w for w in res.warnings)
+
+
+def test_read_file_saved_by_real_kdenlive(timeline_project: Project):
+    """A03 evidence: a project re-saved by Kdenlive 26.08 itself (GUI session, see docs/evidence/A03-kdenlive-gui)
+    parses back: clock-formatted blanks/in/out, guides added in the GUI, captions and scene clips."""
+    fixture = Path(__file__).resolve().parents[1] / "docs" / "evidence" / "A03-kdenlive-gui" / "saved-by-kdenlive-26.08.kdenlive"
+    if not fixture.exists():
+        pytest.skip("evidence fixture missing")
+    parsed = read_kdenlive(fixture, timeline_project)
+    assert parsed["revision"] >= 1
+    assert any(g["comment"] == "Marker" for g in parsed["guides"])  # guide added with the GUI
+    v2 = next(t for t in parsed["tracks"] if t["id"] == "V2")
+    assert [c["source"]["ref"] for c in v2["clips"]][:5] == ["beat1", "beat2", "beat3", "beat4", "beat5"]
+    assert v2["clips"][0]["start"] == 0 and v2["clips"][1]["start"] == v2["clips"][0]["out"]
+    assert len(parsed["captions"]) == 7 and parsed["captions"][0]["text"].startswith("Tres tokens")
+    assert all(t["kind"] == ("audio" if t["id"].startswith("A") else "video") for t in parsed["tracks"])

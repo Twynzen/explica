@@ -22,13 +22,47 @@ Cada productor y entrada lleva propiedades `explica:*` (`scene_id`, `scene_hash`
 - Efectos, keyframes, transiciones entre clips y mezclas creados en la GUI no se modelan en el manifiesto:
   se listan en `unmodelled` al sincronizar, y permanecen en el `.kdenlive` del humano (que no se sobrescribe).
 
-## Qué NO se ha probado
+## Prueba con la GUI real de Kdenlive 26.08 (headless, reproducible)
 
-- **Abrir y guardar en la GUI de Kdenlive 26.08.** No hay modo headless y el escritorio no estaba disponible
-  para esta sesión. Un intento con `QT_QPA_PLATFORM=offscreen` se documenta en `docs/LIMITS.md`. Hasta que
-  una persona abra el proyecto, lo guarde y ejecute `sync-from-kdenlive`, el round-trip GUI real es **pendiente**
-  (A03). Lo que está verificado es el round-trip por archivo con el mismo formato y el mismo motor.
-- Proxies, subtítulos nativos de Kdenlive (usamos clips de título en V4 + SRT aparte).
+Sin pantalla disponible para el agente, la prueba se hizo con un **compositor privado**: Weston 16 compilado en
+el usuario (`~/.cache/explica-weston-build`, backend headless, sin sudo), un Xwayland rootful (`:2`) dentro de
+él, un bus D-Bus de sesión privado (`dbus-run-session`) y directorios XDG aislados. Nada toca el escritorio
+ni la configuración del usuario. Kdenlive se controla con eventos de entrada reales (XTEST, `scripts/xtest.py`)
+y sus propios diálogos; las capturas se toman con `ffmpeg -f x11grab`.
+
+```bash
+# compositor (una vez)
+uv venv ~/.cache/explica-weston-build/tools && uv pip install --python ~/.cache/explica-weston-build/tools/bin/python meson ninja
+curl -LO https://gitlab.freedesktop.org/wayland/weston/-/archive/16.0.0/weston-16.0.0.tar.gz && tar xzf weston-16.0.0.tar.gz
+PATH=~/.cache/explica-weston-build/tools/bin:$PATH meson setup build weston-16.0.0 --prefix=$HOME/.cache/explica-weston-build/prefix \
+  -Dbackend-drm=false -Dbackend-rdp=false -Dbackend-vnc=false -Dbackend-pipewire=false -Dbackend-wayland=false -Dbackend-x11=false \
+  -Dbackend-headless=true -Dbackend-default=headless -Drenderer-vulkan=false -Dxwayland=true -Dsystemd=false -Ddeprecated-remoting=false \
+  -Ddeprecated-pipewire=false -Dshell-ivi=false -Dshell-kiosk=false -Dshell-lua=false -Dcolor-management-lcms=false -Dimage-webp=false \
+  -Dtools=[] -Ddemo-clients=false -Dsimple-clients=[] -Dtests=false -Ddoc=false -Dperfetto=false
+PATH=~/.cache/explica-weston-build/tools/bin:$PATH ninja -C build install
+# prueba
+scripts/kdenlive_headless_roundtrip.sh examples/pilot-atencion/export/pilot-atencion.kdenlive /tmp/kdgui
+```
+
+Resultado (2026-10-15, Kdenlive 26.08.0, evidencia en `docs/evidence/A03-kdenlive-gui/`):
+
+- Kdenlive **abre** el proyecto exportado: bin con la secuencia «Atención: un paso» (00:00:33:28), 24 clips,
+  guías beat1–beat5, monitor de proyecto renderizando títulos, escena y caption (`shot-01-loaded.png`).
+- Edición humana simulada con ratón/teclado reales: clic en la regla (mueve el cursor), `G` + diálogo →
+  guía «Marker» (`shot-02-guide-added.png`); `Ctrl+A` y `Shift+R` (cortar en el cursor) (`shot-03-after-cut.png`).
+- **Guardar** con el diálogo de cierre de Kdenlive («Save») y su aviso de copia de seguridad (`shot-06-after-ok.png`);
+  Kdenlive reescribió el documento con su propio serializador (`kdenliveversion` 26.08.0, doc 1.1, tiempos en
+  formato reloj) y salió limpiamente.
+- Releído por explica: **todos los clips de las 7 pistas idénticos** (posición, in/out, ganancia), captions y
+  títulos idénticos, guía nueva presente; `sync-from-kdenlive --dry-run` sin diferencias de montaje.
+- Render antes/después: frame 600 del archivo guardado por Kdenlive vs. nuestro export, SSIM 1,000 / PSNR ∞.
+- Kdenlive conserva las propiedades `explica:*` de los productores (bin) y de `main_bin`, pero descarta las de
+  entradas y tractores; por eso el lector identifica pistas por nombre/posición y clips por productor + posición.
+
+Lo que no cubre esta prueba: el corte con `Shift+R` no siempre se aplicó (dependía de qué quedó seleccionado) y
+no se verificó la edición de un título en el editor de títulos de la GUI; el formato de ambos está cubierto por
+las pruebas de lectura con archivos modificados tal como los guarda Kdenlive. Proxies y la pista de subtítulos
+nativa no se usan.
 
 ## Flujo recomendado
 
