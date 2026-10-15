@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install system tools (FFmpeg, MLT/melt, cairo, fonts)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg melt libcairo2-dev pkg-config fonts-liberation fonts-dejavu-core
+          melt -version || true
+          ffmpeg -version | head -1
+      - uses: astral-sh/setup-uv@v5
+      - name: Install package
+        run: |
+          uv venv --python ${{ matrix.python-version }} .venv
+          uv pip install --python .venv/bin/python -e ".[dev]" anyio pytest-anyio
+      - name: Lint
+        run: .venv/bin/ruff check src tests
+      - name: Capabilities (measured)
+        run: .venv/bin/explica capabilities
+      - name: Tests
+        run: QT_QPA_PLATFORM=offscreen .venv/bin/python -m pytest -q
+      - name: Pilot build (no TTS in CI) + validate + kdenlive export
+        run: |
+          .venv/bin/python -m explica.pilot.attention /tmp/pilot > /tmp/pilot-summary.json
+          .venv/bin/explica -p /tmp/pilot validate
+          .venv/bin/explica -p /tmp/pilot export kdenlive
+          .venv/bin/explica -p /tmp/pilot frame timeline 120
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pilot-evidence-py${{ matrix.python-version }}
+          path: |
+            /tmp/pilot-summary.json
+            /tmp/pilot/renders/preview/*.png
+            /tmp/pilot/export/*.kdenlive
+          if-no-files-found: ignore

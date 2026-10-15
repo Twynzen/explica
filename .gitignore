@@ -1,0 +1,26 @@
+.venv/
+.models/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+# generated project data (renders, jobs, checkpoints) inside example projects
+examples/*/renders/
+examples/*/jobs/
+examples/*/checkpoints/
+examples/*/export/
+examples/*/.lock
+examples/*/assets/voice/
+examples/*/assets/music/
+examples/*/assets/mix/
+examples/*/assets/*.wav
+examples/*/assets/*.mp4
+examples/*/assets/*.mov
+examples/*/assets/*.png
+examples/*/assets/*.srt
+examples/*/mcp-server.log
+# local evidence bundles
+evidence/

@@ -1,0 +1,222 @@
+{
+  "schema": "explica/scene@1",
+  "id": "beat1",
+  "title": "Atención: un paso",
+  "duration_frames": 204,
+  "background": "#000000",
+  "width": 1080,
+  "height": 1920,
+  "font": "Liberation Sans",
+  "decimal_separator": ",",
+  "camera": {
+    "x": 540,
+    "y": 960,
+    "zoom": 1.0
+  },
+  "objects": [
+    {
+      "id": "title",
+      "type": "text",
+      "text": "Atención: un paso",
+      "x": 540,
+      "y": 180,
+      "size": 68,
+      "weight": "bold"
+    },
+    {
+      "id": "subtitle",
+      "type": "text",
+      "text": "ejemplo de juguete · tokenización ilustrativa",
+      "x": 540,
+      "y": 270,
+      "size": 40,
+      "color": "#bbbbbb"
+    },
+    {
+      "id": "tok1",
+      "type": "token",
+      "text": "El",
+      "x": 240,
+      "y": 620,
+      "size": 60,
+      "glow": 0.0
+    },
+    {
+      "id": "tok2",
+      "type": "token",
+      "text": "gato",
+      "x": 540,
+      "y": 620,
+      "size": 60,
+      "glow": 0.0
+    },
+    {
+      "id": "tok3",
+      "type": "token",
+      "text": "duerme",
+      "x": 840,
+      "y": 620,
+      "size": 60,
+      "glow": 0.0
+    },
+    {
+      "id": "pos1",
+      "type": "text",
+      "text": "1",
+      "x": 240,
+      "y": 720,
+      "size": 40,
+      "color": "#888888"
+    },
+    {
+      "id": "pos2",
+      "type": "text",
+      "text": "2",
+      "x": 540,
+      "y": 720,
+      "size": 40,
+      "color": "#888888"
+    },
+    {
+      "id": "pos3",
+      "type": "text",
+      "text": "3",
+      "x": 840,
+      "y": 720,
+      "size": 40,
+      "color": "#888888"
+    },
+    {
+      "id": "question",
+      "type": "text",
+      "text": "¿Qué mira la posición 3?",
+      "x": 540,
+      "y": 1000,
+      "size": 56,
+      "weight": "bold"
+    },
+    {
+      "id": "mask",
+      "type": "text",
+      "text": "máscara causal: puede mirar las posiciones 1, 2 y 3",
+      "x": 540,
+      "y": 1100,
+      "size": 38,
+      "color": "#bbbbbb",
+      "max_width": 900
+    }
+  ],
+  "animations": [
+    {
+      "id": "a_title",
+      "target": "title",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 0,
+      "end": 12,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_sub",
+      "target": "subtitle",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 6,
+      "end": 18,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_tok1",
+      "target": "tok1",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 15,
+      "end": 27,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_pos1",
+      "target": "pos1",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 15,
+      "end": 27,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_tok2",
+      "target": "tok2",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 25,
+      "end": 37,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_pos2",
+      "target": "pos2",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 25,
+      "end": 37,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_tok3",
+      "target": "tok3",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 35,
+      "end": 47,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_pos3",
+      "target": "pos3",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 35,
+      "end": 47,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_q",
+      "target": "question",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 102,
+      "end": 114,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_mask",
+      "target": "mask",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 112,
+      "end": 124,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_glow3",
+      "target": "tok3",
+      "property": "glow",
+      "from": 0,
+      "to": 1,
+      "start": 102,
+      "end": 117,
+      "easing": "ease_out"
+    }
+  ],
+  "notes": "Toy example; see pilot/README.md for sources and simplifications."
+}

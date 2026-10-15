@@ -1,0 +1,21 @@
+{
+  "schema": "explica/scene@1",
+  "id": "minima",
+  "duration_frames": 90,
+  "background": "#000000",
+  "width": 1080,
+  "height": 1920,
+  "decimal_separator": ",",
+  "objects": [
+    {"id": "title", "type": "text", "text": "Una escena mínima", "x": 540, "y": 300, "size": 72, "weight": "bold"},
+    {"id": "t1", "type": "token", "text": "El", "x": 300, "y": 900},
+    {"id": "t2", "type": "token", "text": "gato", "x": 700, "y": 900, "glow": 1.0},
+    {"id": "arc", "type": "arc", "from": {"ref": "t2"}, "to": {"ref": "t1"}, "lift": 150, "weight": 0.8, "progress": 0.0},
+    {"id": "f", "type": "formula", "text": "w_{i} = softmax(q·k_{i} / √{d_{k}})", "x": 540, "y": 1200, "size": 54}
+  ],
+  "animations": [
+    {"id": "a_title", "target": "title", "property": "opacity", "from": 0, "to": 1, "start": 0, "end": 15, "easing": "ease_out"},
+    {"id": "a_arc", "target": "arc", "property": "progress", "from": 0, "to": 1, "start": 20, "end": 50, "easing": "ease_in_out"},
+    {"id": "a_zoom", "target": "camera", "property": "zoom", "from": 1.0, "to": 1.15, "start": 40, "end": 90, "easing": "ease_in_out"}
+  ]
+}

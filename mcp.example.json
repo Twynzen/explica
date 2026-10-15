@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "explica": {
+      "command": "/ABSOLUTE/PATH/TO/explica/.venv/bin/explica-mcp",
+      "args": ["--project", "/ABSOLUTE/PATH/TO/explica/examples/pilot-atencion"]
+    }
+  }
+}

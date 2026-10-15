@@ -1,0 +1,258 @@
+{
+  "schema": "explica/scene@1",
+  "id": "beat5",
+  "title": "Una cabeza, muchas capas",
+  "duration_frames": 162,
+  "background": "#000000",
+  "width": 1080,
+  "height": 1920,
+  "font": "Liberation Sans",
+  "decimal_separator": ",",
+  "camera": {
+    "x": 540,
+    "y": 960,
+    "zoom": 1.0
+  },
+  "objects": [
+    {
+      "id": "title",
+      "type": "text",
+      "text": "Una cabeza, muchas capas",
+      "x": 540,
+      "y": 180,
+      "size": 68,
+      "weight": "bold"
+    },
+    {
+      "id": "tok1",
+      "type": "token",
+      "text": "El",
+      "x": 240,
+      "y": 620,
+      "size": 60,
+      "glow": 0.0
+    },
+    {
+      "id": "tok2",
+      "type": "token",
+      "text": "gato",
+      "x": 540,
+      "y": 620,
+      "size": 60,
+      "glow": 0.0
+    },
+    {
+      "id": "tok3",
+      "type": "token",
+      "text": "duerme",
+      "x": 840,
+      "y": 620,
+      "size": 60,
+      "glow": 1.0
+    },
+    {
+      "id": "arc1",
+      "type": "arc",
+      "from": {
+        "ref": "tok3"
+      },
+      "to": {
+        "ref": "tok1"
+      },
+      "lift": 170,
+      "weight": 0.29
+    },
+    {
+      "id": "arc2",
+      "type": "arc",
+      "from": {
+        "ref": "tok3"
+      },
+      "to": {
+        "ref": "tok2"
+      },
+      "lift": 110,
+      "weight": 0.42
+    },
+    {
+      "id": "arc3",
+      "type": "arc",
+      "from": {
+        "ref": "tok3",
+        "dx": -40
+      },
+      "to": {
+        "ref": "tok3",
+        "dx": 40
+      },
+      "lift": 70,
+      "weight": 0.29
+    },
+    {
+      "id": "box",
+      "type": "rect",
+      "x": 540,
+      "y": 640,
+      "w": 860,
+      "h": 300,
+      "rx": 30,
+      "stroke": "#888888",
+      "stroke_width": 3,
+      "opacity": 0.0
+    },
+    {
+      "id": "layer1",
+      "type": "rect",
+      "x": 540,
+      "y": 1060,
+      "w": 700,
+      "h": 90,
+      "rx": 20,
+      "stroke": "#aaaaaa",
+      "stroke_width": 3
+    },
+    {
+      "id": "layer2",
+      "type": "rect",
+      "x": 540,
+      "y": 1180,
+      "w": 700,
+      "h": 90,
+      "rx": 20,
+      "stroke": "#aaaaaa",
+      "stroke_width": 3
+    },
+    {
+      "id": "layer3",
+      "type": "rect",
+      "x": 540,
+      "y": 1300,
+      "w": 700,
+      "h": 90,
+      "rx": 20,
+      "stroke": "#aaaaaa",
+      "stroke_width": 3
+    },
+    {
+      "id": "dots",
+      "type": "text",
+      "text": "…",
+      "x": 540,
+      "y": 1400,
+      "size": 60,
+      "color": "#aaaaaa"
+    },
+    {
+      "id": "recap",
+      "type": "text",
+      "text": "una cabeza · un paso · números de juguete",
+      "x": 540,
+      "y": 920,
+      "size": 40,
+      "color": "#bbbbbb",
+      "max_width": 900
+    },
+    {
+      "id": "layers_label",
+      "type": "text",
+      "text": "muchas capas",
+      "x": 540,
+      "y": 1060,
+      "size": 44,
+      "weight": "bold"
+    }
+  ],
+  "animations": [
+    {
+      "id": "a_title",
+      "target": "title",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 0,
+      "end": 12,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_box",
+      "target": "box",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 20,
+      "end": 35,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_recap",
+      "target": "recap",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 25,
+      "end": 37,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_layer1",
+      "target": "layer1",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 81,
+      "end": 93,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_layer2",
+      "target": "layer2",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 89,
+      "end": 101,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_layer3",
+      "target": "layer3",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 97,
+      "end": 109,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_dots",
+      "target": "dots",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 111,
+      "end": 123,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_layers_label",
+      "target": "layers_label",
+      "property": "opacity",
+      "from": 0,
+      "to": 1,
+      "start": 81,
+      "end": 93,
+      "easing": "ease_out"
+    },
+    {
+      "id": "a_zoom",
+      "target": "camera",
+      "property": "zoom",
+      "from": 1.0,
+      "to": 0.9,
+      "start": 81,
+      "end": 162,
+      "easing": "ease_in_out"
+    }
+  ],
+  "notes": "Toy example; see pilot/README.md for sources and simplifications."
+}
