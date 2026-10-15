@@ -3,9 +3,9 @@
   "id": "pilot-atencion",
   "name": "Atención: un paso",
   "explica_version": "0.1.0",
-  "revision": 17,
+  "revision": 19,
   "created": "2026-10-15T17:41:35-0500",
-  "updated": "2026-10-15T17:43:13-0500",
+  "updated": "2026-10-15T17:50:12-0500",
   "fps": {
     "num": 30,
     "den": 1
@@ -138,7 +138,7 @@
       "text": "Fuentes: Vaswani et al. 2017 · 3Blue1Brown, Attention",
       "x": 540,
       "y": 1804,
-      "size": 34,
+      "size": 38,
       "color": "#999999",
       "weight": "normal",
       "align": "center",
@@ -149,7 +149,7 @@
       "text": "explica · piloto original",
       "x": 540,
       "y": 115,
-      "size": 32,
+      "size": 38,
       "color": "#777777",
       "weight": "normal",
       "align": "center",
@@ -446,11 +446,11 @@
   "transcripts": {},
   "sync": {
     "kdenlive": {
-      "path": "export/bundle-r17/project/pilot-atencion.kdenlive",
-      "sha256": "35fcd55a4a9854c83f569c7e4d4a11a0800d33d14c436e273a9098b2fecdad2a",
-      "revision": 17,
-      "exported_at": "2026-10-15T17:43:13-0500",
-      "timeline_fingerprint": "dfbd26fe7999e83d6a24bfc5982e3791a5575d090cf0cc7394285040a4d6e726"
+      "path": "export/pilot-atencion.kdenlive",
+      "sha256": "853e3802b8bd4493971207530dd76c1c90d817f40b720f178039a2aecae70782",
+      "revision": 19,
+      "exported_at": "2026-10-15T17:50:12-0500",
+      "timeline_fingerprint": "d36b661573bb2ae96a3730f770a0268cb60b0407261c7bfb77bf9edd4e470e3f"
     }
   },
   "history": [
@@ -571,6 +571,20 @@
       "at": "2026-10-15T17:41:50-0500",
       "summary": "timeline patch (23 ops)",
       "checkpoint": "0016-timeline-patch"
+    },
+    {
+      "revision": 18,
+      "op": "title.set",
+      "at": "2026-10-15T17:49:58-0500",
+      "summary": "set title credit",
+      "checkpoint": "0017-title-set"
+    },
+    {
+      "revision": 19,
+      "op": "title.set",
+      "at": "2026-10-15T17:49:58-0500",
+      "summary": "set title label",
+      "checkpoint": "0018-title-set"
     }
   ],
   "provenance": {

@@ -565,6 +565,7 @@ class Project:
                 errors.append(f"asset {aid}: {exc}")
         if deep:
             warnings.extend(self._caption_overlap_warnings())
+            warnings.extend(self._legibility_warnings())
         sync = self.m.get("sync", {}).get("kdenlive")
         if sync:
             try:
@@ -605,6 +606,30 @@ class Project:
                     b = info["bbox"]
                     if box.intersects(BBox(b["x0"], b["y0"], b["x1"], b["y1"])):
                         out.append(f"caption {cap['id']} box overlaps {sid}.{oid} at frame {mid}")
+        return out
+
+    def _legibility_warnings(self, min_text_px: int | None = None) -> list[str]:
+        """A08: text drawn smaller than `min_text_px` (logical px at project width) is hard to read on a phone.
+        Default threshold: 3.5 % of the project width (38 px at 1080), i.e. roughly 2 mm x-height on a 6-inch screen."""
+        threshold = int(min_text_px or self.m.get("min_text_px") or round(self.width * 0.035))
+        out: list[str] = []
+        for sid in self.m["scenes"]:
+            try:
+                scene = self.load_scene(sid)
+            except (ProjectError, OSError, ValueError):
+                continue
+            for obj in scene.get("objects", []):
+                size = obj.get("size") if obj.get("type") in ("text", "formula", "number", "token", "vector", "matrix", "bar") else None
+                if size is not None and float(size) < threshold:
+                    out.append(f"legibility: {sid}.{obj['id']} text size {size}px < {threshold}px (min for mobile)")
+                if obj.get("type") in ("vector", "matrix") and float(obj.get("label_size", 36)) < threshold * 0.85:
+                    out.append(f"legibility: {sid}.{obj['id']} label_size {obj.get('label_size', 36)}px < {threshold}px")
+        cap = int(self.m.get("caption_size", 52))
+        if cap < threshold:
+            out.append(f"legibility: caption_size {cap}px < {threshold}px")
+        for tid, t in self.m.get("titles", {}).items():
+            if float(t.get("size", 64)) < threshold:
+                out.append(f"legibility: title {tid} size {t.get('size')}px < {threshold}px")
         return out
 
     def caption_box(self) -> dict:

@@ -127,3 +127,11 @@ def test_inspect_contains_limits_and_history(project: Project):
     assert info["revision"] == project.revision
     assert info["limits"] and info["history_tail"]
     assert info["interval_convention"].startswith("[start, end)")
+
+
+def test_validate_flags_small_text(project: Project):
+    project.scene_patch("s1", [{"op": "set", "path": "objects.title.size", "value": 20}])
+    v = project.validate()
+    assert any("legibility: s1.title" in w for w in v["warnings"])
+    project.scene_patch("s1", [{"op": "set", "path": "objects.title.size", "value": 60}])
+    assert not [w for w in project.validate()["warnings"] if "legibility" in w]

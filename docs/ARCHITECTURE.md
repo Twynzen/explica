@@ -53,7 +53,8 @@ opcional (si se da, vale antes de `start`), easing `linear|ease_in|ease_out|ease
 `camera` es un target especial (`x, y, zoom`).
 
 `scene_inspect(id, frame)` devuelve el bounding box de cada objeto en coordenadas lógicas: es la
-evidencia que usa el validador para comprobar que los captions no tapan diagramas (A08/A22).
+evidencia que usa el validador para comprobar que los captions no tapan diagramas (A08/A22). `validate`
+también avisa de cualquier texto por debajo del tamaño mínimo móvil (`min_text_px`, por defecto 3,5 % del ancho).
 
 Render: `background: null` produce `.mov` QuickTime RLE con alfa recto (`unpremultiply` tras cairo), probado
 en composición con `qtblend`; opaco produce H.264 yuv420p. 1080×1920 ≈ 1 s por 60 frames en este i3.
