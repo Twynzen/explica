@@ -25,6 +25,12 @@ Abre `docs/evidence/pilot-master-f255.png` y `pilot-master-f600.png` en el telé
 Escucha el master con auriculares. ¿La voz se entiende en todas las frases? ¿La música tapa la voz en algún
 momento? Frases dudosas conocidas: las que contienen «k» y «q» (voz sintética de prueba).
 
+## 4. Opcional: A/B de separación de fuentes (A10)
+
+Ya está medida por máquina (`docs/AUDIO.md` §Separación). Si quieres oírla: ejecuta `scripts/separation_check.py`
+como indica su cabecera y compara `truth-voice.wav` con `separated/mix_(Vocals)_….wav` (y lo mismo para la
+música). Anota si la voz separada sirve para transcribir y si la música te parece reutilizable (esperado: no).
+
 ## Cómo aplicar una corrección
 
 - Rótulo o número: `.venv/bin/explica -p examples/pilot-atencion scene patch beat3 --ops-json '[{"op":"set","path":"objects.title.text","value":"Nuevo rótulo"}]'`

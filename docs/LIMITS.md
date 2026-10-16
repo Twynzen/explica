@@ -27,3 +27,6 @@
 10. **CI** ejecuta pruebas con ffmpeg/melt de Ubuntu y construye el piloto **sin voz** (no descarga modelos).
 11. **Windows/macOS:** no probado; el código evita rutas específicas de Linux salvo `/proc/<pid>/cmdline` en la
     verificación de jobs (degrada a «no coincide» en otros sistemas).
+12. **Separación de fuentes (A10):** medida solo por SDR contra los stems reales del piloto, sin escucha A/B
+    humana; el stem de música sale con artefactos (SDR ≈ 0 dB con la cama a −11,5 dB) y la voz separada vuelve
+    con otra ganancia. Requiere un venv aparte de 1,3 GB y 2,7 GiB de RAM; no es dependencia del proyecto.
