@@ -1,0 +1,35 @@
+{
+ "project": "pilot-atencion",
+ "seconds": 29.43,
+ "music_offset_db": 18.0,
+ "separator": {
+  "package": "audio-separator",
+  "model": "UVR-MDX-NET-Voc_FT.onnx",
+  "model_sha256": "534b2070fcc7df514b13ef660dc8cbb328679c2374d04354a5c42bb14ecce111",
+  "model_bytes": 66762490,
+  "device": "cpu"
+ },
+ "run": {
+  "elapsed_s": 83.4,
+  "max_rss_mib": 2416.9
+ },
+ "metrics": {
+  "music_level_rel_voice_db": -11.5,
+  "baseline_mix_as_voice_sdr_db": 11.5,
+  "baseline_mix_as_music_sdr_db": -11.5,
+  "voice_sdr_db": 11.28,
+  "voice_scaled_sdr_db": 30.68,
+  "music_sdr_db": 0.28,
+  "music_scaled_sdr_db": 0.39,
+  "sum_consistency_db": 36.54,
+  "voice_gap_fraction": 0.112,
+  "vocal_bleed_in_gaps_db_rel_mix": -49.4
+ },
+ "ab_files": {
+  "mix": "<work>/mix.wav",
+  "truth_voice": "<work>/truth-voice.wav",
+  "truth_music": "<work>/truth-music.wav",
+  "est_voice": "<work>/separated/mix_(Vocals)_UVR-MDX-NET-Voc_FT.wav",
+  "est_music": "<work>/separated/mix_(Instrumental)_UVR-MDX-NET-Voc_FT.wav"
+ }
+}

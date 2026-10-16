@@ -23,4 +23,5 @@ examples/*/assets/*.png
 examples/*/assets/*.srt
 examples/*/mcp-server.log
 # local evidence bundles
-evidence/
+/evidence/
+examples/*/evidence/

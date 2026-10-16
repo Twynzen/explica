@@ -1,0 +1,9 @@
+T+50 kdenlive alive=yes
+dbus name: org.kde.kdenlive-194969
+ok
+ok
+ok
+ok
+sha before: 03bdb82404492ab6 after: c945b19dfc75b33e
+kdenlive alive after save+quit=no
+done

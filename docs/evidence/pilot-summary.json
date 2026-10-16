@@ -1,0 +1,51 @@
+{
+  "root": "examples/pilot-atencion",
+  "beats": [
+    {
+      "id": "beat1",
+      "start": 0,
+      "frames": 195
+    },
+    {
+      "id": "beat2",
+      "start": 195,
+      "frames": 155
+    },
+    {
+      "id": "beat3",
+      "start": 350,
+      "frames": 233
+    },
+    {
+      "id": "beat4",
+      "start": 583,
+      "frames": 143
+    },
+    {
+      "id": "beat5",
+      "start": 726,
+      "frames": 156
+    }
+  ],
+  "voice": "piper",
+  "warnings": [],
+  "revision": 17,
+  "duration_frames": 882,
+  "math": {
+    "scores": [
+      0.707,
+      1.061,
+      0.707
+    ],
+    "weights": [
+      0.292,
+      0.416,
+      0.292
+    ],
+    "output": [
+      0.438,
+      0.562
+    ],
+    "sum_weights": 1.0
+  }
+}

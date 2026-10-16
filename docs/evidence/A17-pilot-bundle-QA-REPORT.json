@@ -1,0 +1,131 @@
+{
+  "revision": 17,
+  "at": "2026-10-15T18:21:00-0500",
+  "files": {
+    "kdenlive": {
+      "path": "~/Projects/explica/examples/pilot-atencion/export/bundle-r17/project/pilot-atencion.kdenlive",
+      "sha256": "6c506fd79ea58d212d9d63062c98ec15561b3db453bb43e43f7320192b6bc851",
+      "revision": 17,
+      "warnings": [],
+      "producers": 23
+    }
+  },
+  "qa": {
+    "loudnorm": {
+      "path": "~/Projects/explica/examples/pilot-atencion/export/bundle-r17/pilot-atencion-master.mp4",
+      "measured_before": {
+        "input_i": "-15.68",
+        "input_tp": "-2.94",
+        "input_lra": "2.60",
+        "input_thresh": "-26.08",
+        "output_i": "-15.91",
+        "output_tp": "-2.87",
+        "output_lra": "2.80",
+        "output_thresh": "-26.29",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.09"
+      },
+      "after": {
+        "integrated_lufs": -16.0,
+        "lra_lu": 3.2,
+        "true_peak_dbtp": -3.3
+      },
+      "target": {
+        "I": -16.0,
+        "TP": -1.0
+      }
+    },
+    "probe": {
+      "path": "~/Projects/explica/examples/pilot-atencion/export/bundle-r17/pilot-atencion-master.mp4",
+      "format": "mov,mp4,m4a,3gp,3g2,mj2",
+      "duration_seconds": 29.418667,
+      "size_bytes": 1943018,
+      "streams": [
+        {
+          "index": 0,
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 1080,
+          "height": 1920,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "nb_frames": "882",
+          "sample_rate": null,
+          "channels": null,
+          "duration": "29.400000",
+          "time_base": "1/15360"
+        },
+        {
+          "index": 1,
+          "codec_type": "audio",
+          "codec_name": "aac",
+          "width": null,
+          "height": null,
+          "pix_fmt": null,
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "nb_frames": "1380",
+          "sample_rate": "48000",
+          "channels": 2,
+          "duration": "29.418667",
+          "time_base": "1/48000"
+        }
+      ]
+    },
+    "loudness": {
+      "integrated_lufs": -16.0,
+      "lra_lu": 3.2,
+      "true_peak_dbtp": -3.3
+    },
+    "detect": {
+      "black": [
+        {
+          "black_start": 0.0,
+          "black_end": 0.866667,
+          "black_duration": 0.866667
+        }
+      ],
+      "silence": []
+    }
+  },
+  "validation": {
+    "ok": true,
+    "revision": 17,
+    "errors": [],
+    "warnings": [],
+    "duration_frames": 882
+  },
+  "sha256": {
+    "LICENSES.json": "689d992d7746bb1aabc9ff67a2a7bc594383c7e1a5f9de60a1d1f819eeb5616f",
+    "audio/music-bed.wav": "5681b401c067cdfd13a7492528d262676ed28f7e8304515f0abf8c08a1f15350",
+    "audio/voice-01.wav": "6c328472d97eb4a7d435c1a7b9327112f66417794e5fab6b6ae0e9db29af53f1",
+    "audio/voice-02.wav": "9b8209244a219a2408928f59b039208ad8a5e9601149f0121c6686fea427ba35",
+    "audio/voice-03.wav": "2f74cb0b6dfe6dd8e6a98f72ea814dad7494a45c655b8dec0216f9ae13305d4d",
+    "audio/voice-04.wav": "57293a87c19727ad3aae9645987ad72585951b1636d7ebba15605aa8c6cd0e29",
+    "audio/voice-05.wav": "8ac0455161e084700b6e10806045d5705fcf4723cbabc43b31b052379fb8027d",
+    "audio/voice-06.wav": "f1849ac0efc160770ca3d5df2e3e336cda0265d8fd9e1dafaa3387c219062bb2",
+    "audio/voice-07.wav": "166538dde86a8b54f25507950dbced1757a12a69d7ed5eab89c66813ecd42b80",
+    "pilot-atencion-master.mp4": "554448aef21dce618eed3a23d9a74463df566199fef6e00daa0e11564c2adefe",
+    "pilot-atencion.srt": "b149ba4a1a38bf81a6247e139088737bebc11b7a0c84837d2db33a95c50007bb",
+    "project/pilot-atencion-master.mlt": "05e97c4e2aa30f35a4f7e86eb635b8a02fb516711f0542894ac16bd17c0e5269",
+    "project/pilot-atencion.kdenlive": "6c506fd79ea58d212d9d63062c98ec15561b3db453bb43e43f7320192b6bc851",
+    "project/project.json": "0a68aaa6ab872ba01459a9a8c40b6c527ebd167ce3b5ce8b2d7ee1a4287889f0",
+    "project/scenes/beat1.json": "d73b60157314b1fe51598dd182f43ab7400a5b92dfa99d00c496fc6bfa1b94f0",
+    "project/scenes/beat2.json": "67a1c180150f741656e88a2a3c14f37992253f456a8c9f825521fa636c5d1ba6",
+    "project/scenes/beat3.json": "04c78d674ebf46edf0332fa45a6da9062ce1a60bc065cd4e8245b80223ffbe8d",
+    "project/scenes/beat4.json": "185a9b6edec3b527bd1369529fa1c36c70e2b62f68216053562705779859c489",
+    "project/scenes/beat5.json": "3639c542dae17f547e892a845d4d8840b365e2703906367ca36b7bbeb92fe206",
+    "scene-clips/beat1-2807f0b4c2a8415a-1080x1920.mp4": "8ae29289f9e280e95ee758cbbbcdbef2be7ea75d8f77701ac515363121ef29d4",
+    "scene-clips/beat1-2807f0b4c2a8415a-1080x1920.mp4.json": "2df21d4122418b20442d3234c521706846002093ca261194be12fea46ffa57af",
+    "scene-clips/beat2-57268d3d3672d0c0-1080x1920.mp4": "347e723b796f89b93e8c56642bd6de3c16b258b9ba4a0db33fc6ae3956f45645",
+    "scene-clips/beat2-57268d3d3672d0c0-1080x1920.mp4.json": "bf7dd24ac7eaceb363846bec8ca1d4faab947338fbb48e8267c775635438a4a1",
+    "scene-clips/beat3-ea4f4838ea2f88b3-1080x1920.mp4": "af2cf817ee398caab4821e37731a9f1c486819b4372665ea5574d4ec43bb6bc7",
+    "scene-clips/beat3-ea4f4838ea2f88b3-1080x1920.mp4.json": "ea7e3cbae90e7acd716a1b80aa9da1dda44164a3b772c56b0957aca966dc44c4",
+    "scene-clips/beat4-cda64117c9fd3eb3-1080x1920.mp4": "d1e391043c6f806d8eb7ff1c3823a056bd65d79f647f75573f6e06c0746a11bc",
+    "scene-clips/beat4-cda64117c9fd3eb3-1080x1920.mp4.json": "b213dd62a5cdbfca06f4e5aeae94440f356f65acd64ebd7ac73895f6e25fd484",
+    "scene-clips/beat5-8b9f3995aa1fd839-1080x1920.mp4": "a1b0ef5f9c33ee17c98d07eaf1129dfec3ea4eac3d0fdf75a8d499b88650543a",
+    "scene-clips/beat5-8b9f3995aa1fd839-1080x1920.mp4.json": "de534c3e90a33d150c62cbe925dfeffcb75f9c43806a35120ea0ba842db4d331"
+  },
+  "path": "~/Projects/explica/examples/pilot-atencion/export/bundle-r17"
+}
